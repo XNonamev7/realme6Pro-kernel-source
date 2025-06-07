@@ -21,14 +21,14 @@ jobs:
         NAME: Loganysl
       with:
         arch: arm64
-        compiler: gcc/12
+        compiler: gcc/14
         defconfig: ranchu64_defconfig
         image: Image.gz-dtb
 
     - name: Upload Kernel and Module
       uses: actions/upload-artifact@v4
       with:
-        name: module
+        name: moduleandkernel
         path: |
           ${{ steps.build.outputs.outfile }}
           ./out/drivers/memkernel/memkernel.ko
